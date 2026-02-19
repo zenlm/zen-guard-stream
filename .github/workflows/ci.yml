@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate repository
+        run: |
+          echo "Checking required files..."
+          for f in README.md LICENSE; do
+            if [ -f "$f" ]; then
+              echo "[pass] $f exists"
+            else
+              echo "[warn] $f missing"
+            fi
+          done
+
+          # Check for broken symlinks
+          broken=$(find . -xtype l 2>/dev/null | head -5)
+          if [ -n "$broken" ]; then
+            echo "[fail] Broken symlinks found:"
+            echo "$broken"
+            exit 1
+          fi
+
+          echo "All checks passed"
