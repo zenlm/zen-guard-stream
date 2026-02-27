@@ -47,7 +47,7 @@ LLM Response → Token by Token → Real-time Classification
 |---------------|-------|
 | Parameters | 4B |
 | Type | Streaming Classifier |
-| Base Model | Qwen3-4B |
+| Base Model | 4B dense transformer |
 | Context Length | 32,768 tokens |
 | Languages | 119 |
 | Latency | 5ms/token |
@@ -177,9 +177,9 @@ Apache 2.0
 }
 ```
 
-## Based On
+## Architecture
 
-Built upon [Qwen3Guard-Stream-4B](https://huggingface.co/Qwen/Qwen3Guard-Stream-4B).
+Zen Guard Stream is a 4B-parameter streaming safety classifier with 5ms/token latency. It evaluates each generated token in real time, enabling early detection and intervention before unsafe content is fully rendered.
 
 ---
 
