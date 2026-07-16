@@ -7,7 +7,7 @@
 <h1 align="center">Zen Guard Stream</h1>
 
 <p align="center">
-  <strong>4B Real-Time Streaming Safety Moderation</strong>
+  <strong>Real-Time Streaming Safety Moderation</strong>
 </p>
 
 <p align="center">
@@ -19,9 +19,13 @@
 
 ---
 
+> **Status:** Superseded by [zenlm/zen3-guard](https://huggingface.co/zenlm/zen3-guard). Weights remain available for reproducibility.
+
 ## Introduction
 
-**Zen Guard Stream** is a 4B parameter token-level streaming classifier that evaluates each generated token in real time. It's optimized for real-time content moderation during LLM response generation.
+**Zen Guard Stream** is a 0.6B parameter token-level streaming classifier that evaluates each generated token in real time. It's optimized for real-time content moderation during LLM response generation.
+
+Repackaged from [Qwen/Qwen3Guard-Stream-0.6B](https://huggingface.co/Qwen/Qwen3Guard-Stream-0.6B) (apache-2.0, Alibaba Qwen — Qwen3Guard). **Not trained from scratch** — an Apache-2.0 redistribution for the OSS-clean, commercially-usable Zen model line.
 
 ## Features
 
@@ -47,14 +51,13 @@ LLM Response → Token by Token → Real-time Classification
 
 | Specification | Value |
 |---------------|-------|
-| Parameters | 4B |
+| Parameters | 0.6B |
 | Type | Streaming Classifier |
-| Base Model | 4B dense transformer |
-| Context Length | 32,768 tokens |
+| Base Model | [Qwen/Qwen3Guard-Stream-0.6B](https://huggingface.co/Qwen/Qwen3Guard-Stream-0.6B) (apache-2.0) |
+| Architecture | Qwen3 (`Qwen3ForGuardModel`) |
+| Context Length | 8,192 tokens |
 | Languages | 119 |
 | Latency | 5ms/token |
-| VRAM (FP16) | 8GB |
-| VRAM (INT8) | 4GB |
 
 ## Quick Start
 
@@ -160,12 +163,12 @@ def safe_generate(prompt):
 
 ## Related Models
 
-- [zen-guard](https://huggingface.co/zenlm/zen-guard) - 4B base model
-- [zen-guard-gen](https://huggingface.co/zenlm/zen-guard-gen) - 8B generative model
+- [zen3-guard](https://huggingface.co/zenlm/zen3-guard) - canonical successor
+- [zen-guard-gen](https://huggingface.co/zenlm/zen-guard-gen) - generative moderation
 
 ## License
 
-Apache 2.0
+`Apache-2.0`. Upstream: **[Qwen/Qwen3Guard-Stream-0.6B](https://huggingface.co/Qwen/Qwen3Guard-Stream-0.6B)** by Alibaba Qwen (apache-2.0). Upstream LICENSE/NOTICE retained in-repo.
 
 ## Citation
 
@@ -181,7 +184,7 @@ Apache 2.0
 
 ## Architecture
 
-Zen Guard Stream is a 4B-parameter streaming safety classifier with 5ms/token latency. It evaluates each generated token in real time, enabling early detection and intervention before unsafe content is fully rendered.
+Zen Guard Stream is a 0.6B-parameter streaming safety classifier (Qwen3, `Qwen3ForGuardModel`) with 5ms/token latency. It evaluates each generated token in real time, enabling early detection and intervention before unsafe content is fully rendered.
 
 ---
 
