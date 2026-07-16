@@ -12,3 +12,15 @@ a copy of the License in the accompanying LICENSE file or at:
 Unless required by applicable law or agreed to in writing, software and model
 artifacts distributed under the License are distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+------------------------------------------------------------------------------
+Upstream attribution
+------------------------------------------------------------------------------
+
+zen-guard-stream is repackaged from Qwen3Guard-Stream-0.6B by Alibaba Qwen,
+licensed under the Apache License, Version 2.0.
+
+    Qwen/Qwen3Guard-Stream-0.6B
+    https://huggingface.co/Qwen/Qwen3Guard-Stream-0.6B
+    Copyright (c) Alibaba Cloud, Qwen Team
+    SPDX-License-Identifier: Apache-2.0
